@@ -1,0 +1,60 @@
+@import './vars.scss';
+
+//Sticky navigation
+.sticky-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  padding: 20px 0;
+  transition: $transition;
+  height: 103px;
+  a {
+    text-decoration: none;
+  }
+  &__logo {
+    color: $white;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-weight: 700;
+    width: 367px;
+    @include mq('to', 767) {
+      width: 250px;
+    }
+
+    span {
+      display: inline-block;
+      margin: 0 2px;
+      @include mq('to', 767) {
+        margin: 0 1px;
+      }
+
+      &:first-child {
+        margin: 0 2px 0 0;
+      }
+    }
+    .rotate {
+      transform: scaleX(-1);
+    }
+    .space {
+      margin: 0 5px;
+    }
+    @include mq('to', 767) {
+      font-size: 23px;
+    }
+  }
+}
+
+//Classes for toggling on sticky nav depending on position and state
+.sticky-nav-bg {
+  transition: $transition;
+  height: 83px;
+  background-color: $black;
+}
+
+.sticky-nav-transparent {
+  background-color: transparent;
+}

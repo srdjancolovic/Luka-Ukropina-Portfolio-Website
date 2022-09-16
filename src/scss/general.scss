@@ -1,0 +1,248 @@
+@import './vars.scss';
+
+//General on website
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Montserrat';
+}
+
+//Body
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+//Scrollbar
+::-webkit-scrollbar {
+  background: $black;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $iconHoverColor;
+  border-radius: $border-radius;
+}
+
+//Containers
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  height: 100%;
+
+  @include mq('to', 1024) {
+    padding: 80px 20px;
+  }
+
+  &__homepage {
+    height: 100vh;
+    position: relative;
+
+    @include mq('to', 1024) {
+      padding: 80px 20px;
+    }
+  }
+
+  //Toggler container
+  &__toggler {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 60px;
+
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 60px;
+    margin: 0 auto;
+
+    @include mq('to', 1024) {
+      padding: 0 20px;
+    }
+  }
+
+  //Wrapper container on nav
+  &__wrapper {
+    max-width: 100%;
+    padding: 0;
+    background-color: $black;
+  }
+
+  //Contact container
+  &__contact {
+    max-width: 900px;
+    width: 100%;
+    padding: 60px;
+
+    @include mq('to', 767) {
+      padding: 80px 40px;
+    }
+  }
+
+  //Top btn contianer
+  &__top-btn {
+    padding: 20px 0 100px;
+  }
+}
+
+//Before element of sections so navigations drops right where it should be
+section {
+  &::before {
+    content: '';
+    display: block;
+    height: 83px;
+    margin-top: -83px;
+
+    @include mq('to', 576) {
+      height: 70px;
+      margin-top: -70px;
+    }
+  }
+}
+
+//Headings and texts, some general styles
+
+h1,
+h2 {
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 40px;
+
+  @include mq('to', 767) {
+    font-size: 36px;
+  }
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 300;
+
+  @include mq('to', 767) {
+    font-size: 31px;
+  }
+}
+
+h3 {
+  font-size: 32px;
+
+  @include mq('to', 767) {
+    font-size: 27px;
+  }
+}
+
+h4 {
+  font-size: 25px;
+  font-weight: lighter;
+
+  @include mq('to', 767) {
+    font-size: 23px;
+  }
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+
+  @include mq('to', 767) {
+    font-size: 17px;
+  }
+}
+
+//Buttons
+
+.btn {
+  text-decoration: none;
+  font-size: 17px;
+  color: $white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 25px;
+  border-radius: 3px;
+  border: 1px solid $white;
+  position: relative;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    top: 0;
+    transition: $transition;
+    z-index: -1;
+  }
+
+  &::after {
+    left: 0;
+  }
+
+  &::before {
+    right: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &::after,
+      &::before {
+        width: 50%;
+      }
+    }
+  }
+}
+
+//Different background for photography page
+.black-background {
+  background-color: $black;
+}
+
+.top-btn {
+  text-align: center;
+}
+
+//Common styles for photography, retocuh and digital art
+.category-common-styles {
+  h2 {
+    text-transform: uppercase;
+    margin-top: 100px;
+    text-align: center;
+    color: $white;
+    font-weight: 300;
+    position: relative;
+  }
+
+  h3 {
+    color: $white;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  p {
+    margin: 50px 0;
+    color: $white;
+  }
+
+  ul {
+    margin-left: 20px;
+    margin-bottom: 50px;
+    li {
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 300;
+      color: $white;
+      list-style: square;
+      @include mq('to', 767) {
+        font-size: 17px;
+      }
+    }
+  }
+}

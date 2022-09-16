@@ -1,0 +1,128 @@
+@import './vars.scss';
+
+//Contact
+.contact {
+  //Contact content with logo and icons
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mq('to', 1024) {
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    //Contact links
+    a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      img {
+        width: 280px;
+        @include mq('to', 767) {
+          width: 250px;
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          i {
+            color: $iconHoverColor;
+          }
+
+          span {
+            opacity: 1;
+          }
+        }
+      }
+
+      //Icon
+      i {
+        transition: $transition;
+        font-size: 50px;
+        color: $white;
+        font-weight: normal;
+      }
+
+      //Social icon info that is below icons
+      span {
+        transition: $transition;
+        margin-top: 15px;
+        color: $white;
+        position: absolute;
+        bottom: -30px;
+        opacity: 0;
+
+        @include mq('to', 992) {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  //Contact link items
+  &__content-links {
+    display: flex;
+    justify-content: space-around;
+    gap: 100px;
+    @include mq('to', 1024) {
+      gap: 150px;
+    }
+    @include mq('to', 767) {
+      flex-direction: column;
+      gap: 70px;
+    }
+  }
+
+  //Contact logo
+
+  //Copyright
+  &__copyright {
+    padding-top: 0 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mq('to', 1024) {
+      flex-direction: column;
+      gap: 15px;
+      padding-top: 30px !important;
+    }
+
+    //Copyright text
+    p,
+    a {
+      font-size: 12px;
+      color: $white;
+      font-weight: normal;
+    }
+
+    a {
+      text-decoration: none;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: $white;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        transition: $transition;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

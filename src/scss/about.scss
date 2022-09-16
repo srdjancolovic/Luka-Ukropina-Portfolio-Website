@@ -1,0 +1,89 @@
+@import './vars.scss';
+
+.about {
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+  p {
+    margin: 50px auto;
+    color: white;
+  }
+
+  &__categories {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+
+    @include mq('to', 1024) {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  //About category link box
+  &__category {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    text-decoration: none;
+    color: $white;
+    border-radius: $border-radius;
+    overflow: hidden;
+    @include mq('to', 1024) {
+      width: 70%;
+      height: 320px;
+    }
+    @include mq('to', 767) {
+      height: 250px;
+      width: 100%;
+    }
+
+    //Img overlay on box
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.45);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      transition: $transition;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        &::after {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        img {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $border-radius;
+      position: relative;
+      transition: $transition;
+    }
+  }
+
+  //Name of category
+  &__category-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    font-weight: lighter;
+    z-index: 2;
+  }
+}

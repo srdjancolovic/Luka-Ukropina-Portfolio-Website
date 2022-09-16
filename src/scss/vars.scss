@@ -1,0 +1,14 @@
+//Colors
+$white: white;
+$black: #131313;
+$red: red;
+$iconHoverColor: gray;
+$transition: all 0.4s ease;
+$border-radius: 3px;
+
+//Media query function
+@mixin mq($type, $rezMin) {
+  @media only screen and (max-width: #{$rezMin - 1}px) {
+    @content;
+  }
+}
